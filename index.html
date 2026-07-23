@@ -647,6 +647,36 @@ body{accent-color:#FF8A6A}
   .foot .brand svg.brand-mark{height:clamp(16px,2.6vw,22px)}
   .foot .brand svg:not(.brand-mark){width:26px;height:26px}
 }
+
+/* ---- nav CTA hover ----
+   --sh-lift is a 42px-blur, 18px-offset orange glow sized for the big page
+   buttons. On the small nav button it spread ~240x140px, escaping the nav
+   pill and washing over the page as an orange block. Tighter shadow here so
+   the lift still reads but stays inside the capsule. */
+.nav-links .cta a{transition:transform .2s var(--ease),box-shadow .2s ease}
+.nav-links .cta a:hover{box-shadow:0 4px 14px rgba(255,138,106,.34)}
+.nav-links .cta a:active{transform:translateY(0) scale(.97)}
+
+/* ---- bigger hero wordmark ----
+   The hero already filled 100svh exactly, so growing the lettering meant
+   reclaiming space from around it: less top padding, a shorter mountain, and
+   tighter gaps. The cap is height-aware - it takes whatever is left after the
+   fixed chrome (~470px) rather than a flat vh fraction, so it grows on tall
+   displays and backs off on short ones instead of pushing the ridge off. */
+.hero{padding-top:88px}
+.mmx-h1{margin:0 0 10px}
+.hero-tag{margin-bottom:12px}
+.hero .lede{margin:14px auto 22px}
+.hero .ridge{margin-top:14px}
+.hero .ridge svg{height:clamp(90px,12vh,150px)}
+.mmx-mark{
+  max-width:min(1140px,calc((100vh - 470px) * 2.399));
+  max-width:min(1140px,calc((100svh - 470px) * 2.399));
+}
+@media (max-width:900px){
+  .hero{padding-top:84px}
+  .hero .ridge svg{height:clamp(80px,11vh,130px)}
+}
 </style>
 
 <script type="application/ld+json">
