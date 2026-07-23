@@ -677,6 +677,12 @@ body{accent-color:#FF8A6A}
   .hero{padding-top:84px}
   .hero .ridge svg{height:clamp(80px,11vh,130px)}
 }
+
+/* ---- hard guarantee: nothing inside the nav can paint outside the capsule ----
+   The capsule is border-radius:100px, so this clips any child glow, shadow or
+   stray element to the pill shape. Belt and braces on top of the tightened
+   CTA shadow - this class of bug simply cannot render outside the nav now. */
+.nav{overflow:hidden}
 </style>
 
 <script type="application/ld+json">
